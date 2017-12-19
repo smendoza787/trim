@@ -1,0 +1,27 @@
+{
+  "name": "trim-api",
+  "version": "1.0.0",
+  "description": "This README would normally document whatever steps are necessary to get the application up and running.",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "build": "cd client && npm install && npm run build && cd ..",
+    "start": "cd client && npm start",
+    "deploy": "cp -a client/build/. public/",
+    "postinstall": "npm run build && npm run deploy && echo 'Client built!'",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/smendoza787/trim.git"
+  },
+  "author": "Sergio Mendoza",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/smendoza787/trim/issues"
+  },
+  "homepage": "https://github.com/smendoza787/trim#readme"
+}
