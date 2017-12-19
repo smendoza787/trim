@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  namespace :api do
-    resources :links
-  end
+  resources :links, only: [:create]
+  get "/:code", to: "links#show"
 end
