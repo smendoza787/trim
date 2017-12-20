@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import UrlInput from '../UrlInput';
+import UrlOutput from '../UrlOutput';
+import objectToFormData from 'object-to-formdata';
 import './index.css';
 
 class UrlShortener extends Component {
@@ -7,13 +9,27 @@ class UrlShortener extends Component {
     super()
 
     this.state = {
-      value: ''
+      input: '',
+      output: '',
+      isDisabled: true
     }
   }
 
-  onChange (input) {
-    // parent class change handler is always called with field name and value
-    this.setState({ value: input });
+  onInputChange(input) {
+    this.setState({ input: input });
+  }
+
+  onButtonClick(event) {
+    if (this.state.input.includes('http')) {
+      var object = { link: this.state.input }
+      var formData = objectToFormData(object)
+
+      fetch('/links', {
+        method: 'POST',
+        body: formData
+      }).then(resp => resp.json())
+        .then(linkObj => this.setState({ output: linkObj.short_url }))
+    }
   }
   
   render() {
@@ -21,7 +37,9 @@ class UrlShortener extends Component {
       <div className="url-shortener">
         <h1>Shorten any URL in less than a second.</h1>
         <h2>Make it easier to send and embed links.</h2>
-        <UrlInput onChange={this.onChange.bind(this)} longUrl={this.state.value} />
+        <UrlInput onChange={this.onInputChange.bind(this)} longUrl={this.state.input} />
+        <UrlOutput shortUrl={this.state.output} isDisabled={this.state.isDisabled} />
+        <button onClick={(event) => this.onButtonClick(event)}>Shorten URL</button>
       </div>
     )
   }

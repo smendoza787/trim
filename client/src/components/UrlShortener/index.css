@@ -1,11 +1,11 @@
 .url-shortener {
   width: 400px;
-  height: 400px;
   padding: 20px;
   background-color: #fff;
   display: flex;
   flex-direction: column;
   align-items: center;
+  box-shadow: 2px 2px 5px #5c5c5c;
 }
 
 .url-shortener h1,
