@@ -1,18 +1,30 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import background from './images/background.png';
+import Logo from './components/Logo';
+import UrlShortener from './components/UrlShortener';
+import Footer from './components/Footer';
 import './App.css';
 
 class App extends Component {
   render() {
+    const backgroundStyle = {
+      backgroundImage: `url(${background})`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center center',
+      height: '90vh',
+      width: '100vw',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'flex-start',
+      justifyContent: 'space-around',
+      paddingLeft: '30px'
+    }
+
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div className="App" style={backgroundStyle}>
+        <Logo />
+        <UrlShortener />
+        <Footer />
       </div>
     );
   }
