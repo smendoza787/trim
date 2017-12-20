@@ -39,7 +39,7 @@ class UrlShortener extends Component {
         <h2>Make it easier to send and embed links.</h2>
         <UrlInput onChange={this.onInputChange.bind(this)} longUrl={this.state.input} />
         <UrlOutput shortUrl={this.state.output} isDisabled={this.state.isDisabled} />
-        <button onClick={(event) => this.onButtonClick(event)}>Shorten URL</button>
+        <button className="shorten-button" onClick={(event) => this.onButtonClick(event)}>Shorten URL</button>
       </div>
     )
   }

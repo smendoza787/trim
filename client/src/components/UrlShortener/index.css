@@ -12,3 +12,9 @@
 .url-shortener h2 {
   text-align: left;
 }
+
+.shorten-button {
+  border: none;
+  color: blue;
+  font-size: 1.5em;
+}
