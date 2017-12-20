@@ -1,6 +1,16 @@
 .url-input-field {
   width: 360px;
   height: 35px;
+  border: none;
+  font-size: 1.25em;
+  border-bottom: 1px solid #000;
+  outline: none;
+}
+
+.url-input-field:focus::-webkit-input-placeholder {
+  font-size: 2em;
+  color: transparent;
+  border-bottom: 1px solid #0000ff;
 }
 
 .url-input h3 {
