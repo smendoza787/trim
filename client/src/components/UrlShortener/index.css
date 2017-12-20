@@ -1,5 +1,14 @@
 .url-shortener {
-  width: 380px;
-  height: 380px;
+  width: 400px;
+  height: 400px;
+  padding: 20px;
   background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.url-shortener h1,
+.url-shortener h2 {
+  text-align: left;
 }
