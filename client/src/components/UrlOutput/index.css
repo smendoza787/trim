@@ -1,6 +1,14 @@
 .url-output-field {
   width: 360px;
   height: 35px;
+  border: none;
+  border-bottom: 1px solid #dddddd;
+  font-size: 1.25em;
+  outline: none;
+}
+
+.url-output-field:focus::-webkit-input-placeholder {
+  font-size: 2em;
 }
 
 .url-output h3 {
