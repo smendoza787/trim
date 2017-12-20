@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import UrlInput from '../UrlInput';
 import UrlOutput from '../UrlOutput';
+import MainButton from '../MainButton';
 import objectToFormData from 'object-to-formdata';
 import './index.css';
 
@@ -11,7 +12,8 @@ class UrlShortener extends Component {
     this.state = {
       input: '',
       output: '',
-      isDisabled: true
+      isDisabled: true,
+      linkSelected: false
     }
   }
 
@@ -19,7 +21,7 @@ class UrlShortener extends Component {
     this.setState({ input: input });
   }
 
-  onButtonClick(event) {
+  onShortenClick(event) {
     if (this.state.input.includes('http')) {
       var object = { link: this.state.input }
       var formData = objectToFormData(object)
@@ -28,18 +30,32 @@ class UrlShortener extends Component {
         method: 'POST',
         body: formData
       }).then(resp => resp.json())
-        .then(linkObj => this.setState({ output: linkObj.short_url }))
+        .then(linkObj => this.setState({ output: linkObj.short_url, isDisabled: false, linkSelected: true }))
     }
   }
-  
+
+  onCopyClick(event) {
+    if (this.state.output.includes('http')) {
+      console.log("COPYCLICKEVENT", event);
+    }
+  }
+
   render() {
     return (
       <div className="url-shortener">
         <h1>Shorten any URL in less than a second.</h1>
         <h2>Make it easier to send and embed links.</h2>
-        <UrlInput onChange={this.onInputChange.bind(this)} longUrl={this.state.input} />
-        <UrlOutput shortUrl={this.state.output} isDisabled={this.state.isDisabled} />
-        <button className="shorten-button" onClick={(event) => this.onButtonClick(event)}>Shorten URL</button>
+        <UrlInput
+          onChange={this.onInputChange.bind(this)}
+          longUrl={this.state.input} />
+        <UrlOutput
+          shortUrl={this.state.output}
+          isDisabled={this.state.isDisabled} />
+        <MainButton
+          linkSelected={this.state.linkSelected}
+          onShortenClick={(event) => this.onShortenClick(event)}
+          onCopyClick={(event) => this.onCopyClick(event)}
+          shortUrl={this.state.output} />
       </div>
     )
   }
