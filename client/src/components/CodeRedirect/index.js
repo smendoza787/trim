@@ -12,7 +12,7 @@ class CodeRedirect extends Component {
   render() {
     return (
       <div className="code-redirect">
-        <h2>Thanks for using</h2>
+        <h2>Thank you for using</h2>
         <img src={logo} alt="logo"/>
       </div>
     )
