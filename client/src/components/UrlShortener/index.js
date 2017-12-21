@@ -3,6 +3,7 @@ import UrlInput from '../UrlInput';
 import UrlOutput from '../UrlOutput';
 import MainButton from '../MainButton';
 import objectToFormData from 'object-to-formdata';
+import font from './fonts/Display-Regular.otf';
 import './index.css';
 
 class UrlShortener extends Component {
@@ -42,7 +43,8 @@ class UrlShortener extends Component {
 
   render() {
     return (
-      <div className="url-shortener">
+      <div className="url-shortener"
+          style={{ fontFamily: font }}>
         <h1>Shorten any URL in less than a second.</h1>
         <h2>Make it easier to send and embed links.</h2>
         <UrlInput
