@@ -50,7 +50,8 @@ class UrlShortener extends Component {
           longUrl={this.state.input} />
         <UrlOutput
           shortUrl={this.state.output}
-          isDisabled={this.state.isDisabled} />
+          isDisabled={this.state.isDisabled}
+          linkSelected={this.state.linkSelected} />
         <MainButton
           linkSelected={this.state.linkSelected}
           onShortenClick={(event) => this.onShortenClick(event)}
