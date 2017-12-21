@@ -19,8 +19,17 @@
 .contact {
   display: flex;
   justify-content: space-between;
-  width: 50%;
+  width: 400px;
 }
+
+.contact-phone img,
+.contact-email img {
+  position: relative;
+  right: 10px;
+  top: 6px;
+}
+
+.con
 
 @media only screen and (max-width: 650px) {
   .footer {
