@@ -30,7 +30,7 @@ class UrlShortener extends Component {
         method: 'POST',
         body: formData
       }).then(resp => resp.json())
-        .then(linkObj => this.setState({ output: linkObj.short_url, isDisabled: false, linkSelected: true }))
+        .then(linkObj => this.setState({ output: `${window.location.href}${linkObj.code}`, isDisabled: false, linkSelected: true }))
     }
   }
 
