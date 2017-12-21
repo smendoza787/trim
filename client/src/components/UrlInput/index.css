@@ -18,3 +18,13 @@
   text-align: left;
   font-size: .5em;
 }
+
+@media only screen and (max-width: 650px) {
+  .url-input-field {
+    width: 300px;
+  }
+
+  .url-input {
+    margin: 0 auto;
+  }
+}
