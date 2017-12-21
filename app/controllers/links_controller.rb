@@ -11,6 +11,6 @@ class LinksController < ApplicationController
 
   def show
     link = Link.find_by(code: params[:code])
-    redirect_to link.long_url
+    render json: link
   end
 end

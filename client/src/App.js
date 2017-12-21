@@ -3,6 +3,9 @@ import background from './images/background.png';
 import Logo from './components/Logo';
 import UrlShortener from './components/UrlShortener';
 import Footer from './components/Footer';
+import CodeRedirect from './components/CodeRedirect';
+import { BrowserRouter as Router,
+         Route } from 'react-router-dom';
 import './App.css';
 
 class App extends Component {
@@ -21,11 +24,18 @@ class App extends Component {
     }
 
     return (
-      <div className="App" style={backgroundStyle}>
-        <Logo />
-        <UrlShortener />
-        <Footer />
-      </div>
+      <Router>
+        <div>
+          <Route exact path="/" render={() =>
+            <div className="App" style={backgroundStyle}>
+              <Logo />
+              <UrlShortener />
+              <Footer />
+            </div>
+          } />
+          <Route path="/:code" component={CodeRedirect} />
+        </div>
+      </Router>
     );
   }
 }
