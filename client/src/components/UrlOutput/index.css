@@ -15,3 +15,17 @@
   margin: 0;
   text-align: left;
 }
+
+.hidden {
+  display: none;
+}
+
+.copy-label,
+.copied-label {
+  background-color: #000;
+  border-radius: 500px;
+  color: #fff;
+  width: fit-content;
+  padding: 2px 15px;
+  margin: 0 auto;
+}
